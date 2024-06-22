@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VENDER SEGUIDORES - Instagram</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="img/logo.jpg">
+</head>
+<body>
+    <header>
+        <h1>Servicios de Instagram</h1>
+    </header>
+
+    <main>
+        <section id="individualServices" class="card">
+            <label for="serviceType">Selecciona el tipo de servicio:</label>
+            <select id="serviceType">
+                <option value="seguidores">Seguidores</option>
+                <option value="likes">Likes</option>
+                <option value="vistas">Vistas</option>
+                <option value="comentarios">Comentarios</option>
+            </select>
+
+            <label for="serviceName">Selecciona un servicio:</label>
+            <select id="serviceName"></select>
+
+            <label for="quantity">Cantidad:</label>
+            <input type="number" id="quantity" value="1000">
+
+            <label for="profitMargin">Margen de ganancia (%):</label>
+            <input type="number" id="profitMargin" value="10">
+
+            <label for="dropPercentage">Caídas (%):</label>
+            <input type="number" id="dropPercentage" value="0">
+
+            <p>Precio total: Comprar a <span id="buyPrice">0</span> - Vender a <span id="sellPrice">0</span></p>
+            <p>Precio en dólares: Comprar a <span id="buyPriceUSD">0</span> - Vender a <span id="sellPriceUSD">0</span> / Agregar el 5% de comisión</p>
+            <p>Cantidad ajustada: <span id="finalQuantity">0</span></p>
+        </section>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
