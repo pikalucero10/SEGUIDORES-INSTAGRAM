@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const quantity = document.getElementById('quantity');
     const buyPrice = document.getElementById('buyPrice');
     const sellPrice = document.getElementById('sellPrice');
+    const sellPriceRounded = document.getElementById('sellPriceRounded');
     const buyPriceUSD = document.getElementById('buyPriceUSD');
     const sellPriceUSD = document.getElementById('sellPriceUSD');
     const profitMargin = document.getElementById('profitMargin');
@@ -57,23 +58,31 @@ document.addEventListener('DOMContentLoaded', function() {
         updatePrice();
     }
 
+    // Función para redondear hacia arriba al múltiplo de 100 más cercano
+    function roundUpToNearestHundred(value) {
+        return Math.ceil(value / 100) * 100;
+    }
+
     // Actualizar precio
     function updatePrice() {
         const selectedService = serviceName.selectedOptions[0];
         const pricePerUnitInDollars = selectedService ? parseFloat(selectedService.dataset.price) : 0;
         const pricePerUnitInPesos = pricePerUnitInDollars * exchangeRate;
         const totalPriceInPesos = pricePerUnitInPesos * quantity.value;
-        
+
         const profitMarginValue = parseFloat(profitMargin.value) / 100;
         const dropPercentageValue = parseFloat(dropPercentage.value) / 100;
-        
+
         const adjustedQuantity = quantity.value * (1 + dropPercentageValue);
         const adjustedPrice = totalPriceInPesos * (1 + dropPercentageValue);
         const sellPriceInPesos = adjustedPrice * (1 + profitMarginValue);
+        const sellPriceInPesosRounded = roundUpToNearestHundred(sellPriceInPesos); // Redondeo hacia arriba al múltiplo de 100 más cercano
         const sellPriceInDollars = sellPriceInPesos / exchangeRate;
+        const sellPriceInDollarsRounded = sellPriceInPesosRounded / exchangeRate;
 
         buyPrice.textContent = totalPriceInPesos.toFixed(2);
         sellPrice.textContent = sellPriceInPesos.toFixed(2);
+        sellPriceRounded.textContent = sellPriceInPesosRounded.toFixed(2);
         buyPriceUSD.textContent = (totalPriceInPesos / exchangeRate).toFixed(2);
         sellPriceUSD.textContent = sellPriceInDollars.toFixed(2);
         finalQuantity.textContent = adjustedQuantity.toFixed(0);
