@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const buyPriceUSD = document.getElementById('buyPriceUSD');
     const sellPriceUSD = document.getElementById('sellPriceUSD');
     const profitMargin = document.getElementById('profitMargin');
-    const dropPercentage = document.getElementById('dropPercentage');
+    const discount = document.getElementById('discount');
     const finalQuantity = document.getElementById('finalQuantity');
     const exchangeRate = 1300; // 1 dólar = 1300 pesos argentinos
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     serviceType.addEventListener('change', updateIndividualServices);
     quantity.addEventListener('input', updatePrice);
     profitMargin.addEventListener('input', updatePrice);
-    dropPercentage.addEventListener('input', updatePrice);
+    discount.addEventListener('input', updatePrice);
 
     // Cargar archivo JSON
     async function loadJSONFile() {
@@ -71,10 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const totalPriceInPesos = pricePerUnitInPesos * quantity.value;
 
         const profitMarginValue = parseFloat(profitMargin.value) / 100;
-        const dropPercentageValue = parseFloat(dropPercentage.value) / 100;
+        const discountValue = parseFloat(discount.value) / 100;
 
-        const adjustedQuantity = quantity.value * (1 + dropPercentageValue);
-        const adjustedPrice = totalPriceInPesos * (1 + dropPercentageValue);
+        const adjustedQuantity = quantity.value * (1 - discountValue);
+        const adjustedPrice = totalPriceInPesos * (1 - discountValue);
         const sellPriceInPesos = adjustedPrice * (1 + profitMarginValue);
         const sellPriceInPesosRounded = roundUpToNearestHundred(sellPriceInPesos); // Redondeo hacia arriba al múltiplo de 100 más cercano
         const sellPriceInDollars = sellPriceInPesos / exchangeRate;
