@@ -4,8 +4,8 @@
     "seguidores": [
       {
         "id": 1,
-        "service_name": "ID 3415 - Instagram - seguidores con apariencia real - R60",
-        "price_per_unit": 0.00039
+        "service_name": "Instagram - seguidores con apariencia real - R60",
+        "price_per_unit": 0.00046
       },
       {
         "id": 2,
@@ -24,7 +24,7 @@
       {
         "id": 4,
         "service_name": "ID 1334 - Instagram - Vistas - Video - Reel + IGTV - Max. 50K",
-        "price_per_unit": 0.000017
+        "price_per_unit": 0.00010
       }
     ]
   }
