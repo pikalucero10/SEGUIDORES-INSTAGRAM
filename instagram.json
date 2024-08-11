@@ -4,22 +4,22 @@
     "seguidores": [
       {
         "id": 1,
-        "service_name": "Instagram - seguidores con apariencia real - R60",
+        "service_name": "Instagram - seguidores",
         "price_per_unit": 0.00030
       }
     ],
     "likes": [
       {
         "id": 3,
-        "service_name": "ID 3170 - Instagram - Me gusta - Alta calidad - Mundiales, Brasil, Latinos y USA - Max 20K 🔥",
-        "price_per_unit": 0.0001
+        "service_name": "ID 3170 - Instagram - Me gusta",
+        "price_per_unit": 0.00012
       }
     ],
     "vistas": [
       {
         "id": 4,
-        "service_name": "ID 1334 - Instagram - Vistas - Video - Reel + IGTV - Max. 50K",
-        "price_per_unit": 0.00001
+        "service_name": "ID 1334 - Instagram - Vistas",
+        "price_per_unit": 0.00005
       }
     ]
   }
